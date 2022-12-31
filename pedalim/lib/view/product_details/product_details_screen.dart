@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pedalim/model/product.dart';
+import 'package:pedalim/view/payment/payment_done.dart';
 import 'package:pedalim/view/product_details/components/product_carousel_slider.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final Product product;
-  const ProductDetailsScreen({Key? key, required this.product}) : super(key: key);
+  const ProductDetailsScreen({Key? key, required this.product})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,6 @@ class ProductDetailsScreen extends StatelessWidget {
                   fontSize: 24,
                   color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.w600,
-
                 ),
               ),
             ),
@@ -47,20 +49,16 @@ class ProductDetailsScreen extends StatelessWidget {
               child: Text(
                 'Hakkında:',
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w500
-                ),
+                    fontSize: 16,
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 product.description,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey.shade700
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
               ),
             ),
           ],
@@ -72,16 +70,18 @@ class ProductDetailsScreen extends StatelessWidget {
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             backgroundColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).primaryColor
-            ),
+                Theme.of(context).primaryColor),
           ),
-          onPressed: (){},
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const PaymentDone()));
+          },
           child: const Padding(
             padding: EdgeInsets.all(6.0),
-            child: Text('Satın al',
-            style: TextStyle(
-              fontSize: 14
-            ),),
+            child: Text(
+              'Satın al',
+              style: TextStyle(fontSize: 14),
+            ),
           ),
         ),
       ),
