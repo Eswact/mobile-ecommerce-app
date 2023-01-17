@@ -36,16 +36,16 @@ class HomeController extends GetxController {
   void getAdBanners() async{
     try{
       isBannerLoading(true);
-      //assigning local ad banners before call api
+      //eğer local veritabanında kayıtlı banner varsa ordan yükle 
       if(_localAdBannerService.getAdBanners().isNotEmpty){
         bannerList.assignAll(_localAdBannerService.getAdBanners());
       }
-      //cal api
+      //api'ye istek
       var result = await RemoteBannerService().get();
       if (result != null){
-        //assign api result
+        //api cevaplarını yükle
         bannerList.assignAll(adBannerListFromJson(result.body));
-        //save api result to local db
+        //api cevaplarını local veritabanına kaydet
         _localAdBannerService.assignAllAdBanners(adBanners: adBannerListFromJson(result.body));
       }
     } finally {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pedalim/home.dart';
+import 'package:pedalim/appHome.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

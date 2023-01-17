@@ -42,7 +42,7 @@ class _CarouselSliderViewState extends State<CarouselSliderView> {
               }
             )
         ),
-        Row(
+        Row(    // Carousel Slider altındaki noktalar
           mainAxisAlignment: MainAxisAlignment.center,
           children: widget.bannerList.map((e) {
             int index = widget.bannerList.indexOf(e);
